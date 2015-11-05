@@ -17,7 +17,7 @@ Also libboost python and numpy libraries and headers are required
 # Run
 
 ```python
-In [4]: d = cv2.imread('./Documents/osz/kidcv/pyaruco/1.png', 0)
+In [4]: d = cv2.imread('./1.png', 0)
 
 In [5]: import pyaruco.detector as det
 
