@@ -1,0 +1,22 @@
+from distutils.core import setup, Extension
+
+opencv_libs = "${OpenCV_LIBS}".split(';')
+includes = "${INCLUDE_DIR}".split(';')
+libs = "${LINK_DIR}".split(';') + "${LIBRARY_OUTPUT_PATH}".split(';')
+
+detectormodule = Extension('pyaruco.detector',
+                    define_macros = [('MAJOR_VERSION', '1'),
+                                     ('MINOR_VERSION', '0')],
+                    include_dirs = includes,
+                    libraries = ['aruco', 'numpyconversions', 'boost_python']+opencv_libs,
+                    library_dirs = libs,
+                    extra_compile_args = ['-std=c++11'],
+                    sources = ['${CMAKE_CURRENT_SOURCE_DIR}/pymarkerdetector.cpp'])
+
+setup (name = 'pyaruco',
+       version = '1.0',
+       description = 'Wrapper agains aruco detector',
+       author = 'Alexey Golomedov',
+       author_email = 'golomedov@gmail.com',
+       packages=['pyaruco'],
+       ext_modules = [detectormodule])
