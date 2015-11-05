@@ -2,7 +2,7 @@
 
 Basic python wrapper against [aruco](http://www.uco.es/investiga/grupos/ava/node/26) library
 
-Only marcer detection is supported, camera parameters and thus marker location is ignored
+Only marker detection is supported, camera parameters and thus marker location are ignored
 
 # Setup
 
