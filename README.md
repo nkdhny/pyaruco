@@ -31,4 +31,4 @@ Out[6]:
 ```
 
 Returned value of `pyaruco.detector.detect` is list of detected markers. Where each marker is tuple of its 
-id and corners. Corners are 4-tuple of corner (x,y) pairs starting from TL.
+id and corners. Corners are 4-tuple of corner (x,y) pairs.
