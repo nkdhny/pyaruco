@@ -10,7 +10,6 @@ detectormodule = Extension('pyaruco.detector',
                     include_dirs = includes,
                     libraries = ['aruco', 'numpyconversions', 'boost_python']+opencv_libs,
                     library_dirs = libs,
-                    extra_compile_args = ['-std=c++11'],
                     sources = ['${CMAKE_CURRENT_SOURCE_DIR}/pymarkerdetector.cpp'])
 
 setup (name = 'pyaruco',

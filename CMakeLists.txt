@@ -1,8 +1,6 @@
 project(runtagdetector)
 cmake_minimum_required(VERSION 2.8)
 
-add_definitions(-std=c++11)
-
 if(NOT ARUCO_MODULE_PATH)
     set(ARUCO_MODULE_PATH "/usr/local/share/aruco")
 endif()

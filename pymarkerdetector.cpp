@@ -23,25 +23,22 @@ static py::list detect_markers(PyObject* mat) {
     std::vector<aruco::Marker> markers;
     detector.detect(in, markers);
 
-    std::for_each(
-        markers.begin(), markers.end(),
-        [&](aruco::Marker marker) -> void {
-            long id = marker.id;
+    for (std::vector<aruco::Marker>::const_iterator marker = markers.begin();
+        marker < markers.end(); ++marker) {
 
-            std::vector<py::tuple> pts(4);
-            std::transform(marker.begin(), marker.end(), pts.begin(),
-                           [](cv::Point2f p) { return point_to_tuple(p);});
+        long id = marker->id;
+        py::tuple bounding_box = py::make_tuple(
+            point_to_tuple((*marker)[0]),
+            point_to_tuple((*marker)[1]),
+            point_to_tuple((*marker)[2]),
+            point_to_tuple((*marker)[3])
+        );
 
-            py::tuple bounding_box = py::make_tuple(
-                pts[0], pts[1], pts[2], pts[3]
-            );
+        ret.append(
+            py::make_tuple(id, bounding_box)
+        );
 
-            ret.append(
-                py::make_tuple(id, bounding_box)
-            );
-        }
-    );
-
+    }
     return ret;
 }
 
