@@ -1,7 +1,7 @@
 # ifndef __COVERSION_OPENCV_H__
 # define __COVERSION_OPENCV_H__
 
-#include <python2.7/Python.h>
+#include <Python.h>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/core/core.hpp>
